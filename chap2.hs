@@ -115,7 +115,6 @@ prop_2'2 x xs = let tree = fromList insert xs
                  in member x tree == member' x tree
 prop_2'3 xs = fromList insert xs == fromList insert' xs
 prop_2'4 xs = fromList insert xs == fromList insert'' xs
-prop_2'5 xs = fromList insert xs == fromList insert'' xs
 prop_2'6'1 vs = let fm = fromkvs vs vs
                   in map Just vs == map (`lookupFM` fm) vs
 prop_2'6'2 x vs = let fm = fromkvs vs vs
@@ -127,6 +126,5 @@ main = do
     Test.QuickCheck.quickCheck (prop_2'2 :: Int -> [Int] -> Bool)
     Test.QuickCheck.quickCheck (prop_2'3 :: [Int] -> Bool)
     Test.QuickCheck.quickCheck (prop_2'4 :: [Int] -> Bool)
-    Test.QuickCheck.quickCheck (prop_2'5 :: [Int] -> Bool)
     Test.QuickCheck.quickCheck (prop_2'6'1 :: [Int] -> Bool)
     Test.QuickCheck.quickCheck (prop_2'6'2 :: Int -> [Int] -> Bool)
